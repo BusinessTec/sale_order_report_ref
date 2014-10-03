@@ -20,14 +20,14 @@
 ##############################################################################
 
 {
-    'name': 'Costa Rica ID Number',
+    'name': 'Costa Rica Document ID ',
     'version': '0.1',
     'author': 'Business Tec Systems',
-    'summary': 'Provides field for ID number and selection of document type',
+    'summary': 'Provides field for ID number and selection of document type in Costa Rica (without any validation)',
     'description': """
 Costa Rica ID Number
 =======================
-Provides field for ID number and selection of document type.
+Provides field for ID number and selection of document type.No validation is provided
     """,
     'website': 'https://businesstec.net',
     'images': [],
