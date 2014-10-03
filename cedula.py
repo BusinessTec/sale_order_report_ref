@@ -16,6 +16,6 @@ class res_partner(osv.osv):
             ('auto', 'Institución Autónoma'),
             ('govern', 'Gobierno Central'),
             ('other', 'Otro'),
-            ], 'Scheduled Pay', select=True),
+            ], 'Tipo de ID', select=True),
     	           }
 
