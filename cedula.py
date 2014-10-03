@@ -8,7 +8,7 @@ class res_partner(osv.osv):
 	_inherit = 'res.partner'
     	_columns = {
     	              'cedula':fields.char('Cédula', size=20),
-    	              'tipo_de_cedula':: fields.selection([
+    	              'tipo_de_cedula': fields.selection([
             ('company', 'Cedula Jurídica'),
             ('person', 'Cédula de Identidad'),
             ('resident', 'Cédula de Residencia'),
