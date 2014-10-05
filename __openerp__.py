@@ -20,21 +20,21 @@
 ##############################################################################
 
 {
-    'name': 'Costa Rica Document ID ',
+    'name': 'Cost Plus Pricing',
     'version': '0.1',
     'author': 'Business Tec Systems',
-    'summary': 'Provides field for ID number and selection of document type in Costa Rica (without any validation)',
+    'summary': 'Creates a fields margin% and (read only) price for calculating product price to be used in pricelist',
     'description': """
-Costa Rica ID Number
+Cost Plus Pricing
 =======================
-Provides field for ID number and selection of document type.No validation is provided
+Creates a fields margin% and (read only) price for calculating product price to be used in pricelist
     """,
     'website': 'https://businesstec.net',
     'images': [],
-    'depends': ['base'],
+    'depends': ['product', 'sale'],
     'sequence': 18,
     'data': [
-        'cedula.xml',
+        'cost_plus_price.xml',
     ],
     'installable': True,
     'auto_install': False,
