@@ -7,7 +7,7 @@ class price_product_template(osv.osv):
      def _get_price_cal(self, cr, uid, ids, field_name, arg, context=None):
           x={}
           for record in self.browse(cr, uid, ids):
-               x[record.id]= record.standard_price * (1 + record.target_margin)
+               x[record.id]= record.standard_price * (1 + record.target_margin/100)
                return x
             
      _inherit = "product.template"
