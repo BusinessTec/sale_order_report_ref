@@ -3,7 +3,13 @@
 from openerp.osv import osv,fields,orm
 import openerp.addons.decimal_precision as dp
 
-class product_template(osv.osv):
+class price_product_template(osv.osv):
+     def _get_price_cal(self, cr, uid, ids, field_name, arg, context=None):
+        x={}
+        for record in self.browse(cr, uid, ids):
+            x[record.id]= record.standard_price * (1 + record.target_margin)
+            return x
+            
     _inherit = "product.template"
     _columns = {
         'target_margin': fields.float(''purchase_price': fields.float('Cost Price', digits=(16,2))', digits=(6,3)),
