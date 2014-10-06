@@ -12,7 +12,7 @@ class price_product_template(osv.osv):
             
      _inherit = "product.template"
      _columns = {
-          'target_margin': fields.float(''purchase_price': fields.float('Cost Price', digits=(16,2))', digits=(6,3)),
+          'target_margin': fields.float('Margen previsto', digits=(6,3)),
           'price_cal': fields.function(_get_price_cal, method=True, string="Precio base", type='float', store=False),
           }
      _defaults = {
