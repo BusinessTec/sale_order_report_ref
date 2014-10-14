@@ -21,7 +21,7 @@
 
 {
     'name': 'Cost Plus Pricing',
-    'version': '0.1',
+    'version': '1.0',
     'author': 'Business Tec Systems',
     'summary': 'Creates a fields margin% and (read only) price for calculating product price to be used in pricelist',
     'description': """
