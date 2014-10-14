@@ -1,21 +1,15 @@
 # -*- coding: utf-8 -*- 
 
-from openerp.osv import osv,fields,orm
-import openerp.addons.decimal_precision as dp
+from openerp import models, fields, api
 
-class price_product_template(osv.osv):
-     def _get_price_cal(self, cr, uid, ids, field_name, arg, context=None):
-          x={}
-          for record in self.browse(cr, uid, ids):
-               x[record.id]= record.standard_price * (1 + record.target_margin/100)
-               return x
-            
-     _inherit = "product.template"
-     _columns = {
-          'target_margin': fields.float('Margen previsto', digits=(6,3)),
-          'price_cal': fields.function(_get_price_cal, method=True, string="Precio base", type='float', store=False),
-          }
-     _defaults = {
-          'target_margin': 35.0,
-          }
+class price_product_template(models.Model):
 
+	_inherit = "product.template"
+	target_margin = fields.Float(string='Margen previsto', digits=(6,3), default='31')
+	price_cal = fields.Float(string='precio base', digits=(6,3),compute='new_price')
+#	price_cal = fields.Float(string='Margen previsto', digits=(6,3))
+
+	@api.one
+	@api.depends('standard_price','target_margin')
+	def new_price(self):
+		self.price_cal=self.standard_price * (1 + self.target_margin/100)
