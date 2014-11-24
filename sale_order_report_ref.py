@@ -13,8 +13,8 @@ class currency_reference(models.Model):
 class sale_order_ref(models.Model):
 	
 	_inherit = "sale.order"
-	amount_untaxed_ref = fields.Float(string='Subtotal (USD)', digits=(13,2),compute='new_untaxed',readonly=True)
-	amount_taxed_ref = fields.Float(string='Imp. USD', digits=(13,2),readonly=True,compute='new_taxed')
+#	amount_untaxed_ref = fields.Float(string='Subtotal (USD)', digits=(13,2),compute='new_untaxed',readonly=True)
+#	amount_taxed_ref = fields.Float(string='Imp. USD', digits=(13,2),readonly=True,compute='new_taxed')
 	amount_total_ref = fields.Float(string='Total (USD)', digits=(13,2),readonly=True,compute='new_total')
 
 
