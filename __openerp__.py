@@ -20,21 +20,21 @@
 ##############################################################################
 
 {
-    'name': 'Cost Plus Pricing',
-    'version': '1.0',
+    'name': 'Sale Orders in Reporting Currency',
+    'version': '0.1',
     'author': 'Business Tec Systems',
-    'summary': 'Creates a fields margin% and (read only) price for calculating product price to be used in pricelist',
+    'summary': 'Adds additionl column for sales order in reference currency',
     'description': """
-Cost Plus Pricing
-=======================
-Creates a fields margin% and (read only) price for calculating product price to be used in pricelist
+Sale Order in Reporting Currency
+================================
+Calculates sales orders amount in ref currency (can be any currency or company currency). All calculation done at exchange rate of the order date.
     """,
     'website': 'https://businesstec.net',
     'images': [],
     'depends': ['product', 'sale'],
     'sequence': 18,
     'data': [
-        'cost_plus_price.xml',
+#        'cost_plus_price.xml',
     ],
     'installable': True,
     'auto_install': False,
