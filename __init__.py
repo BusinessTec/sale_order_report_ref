@@ -20,5 +20,6 @@
 ##############################################################################
 
 import sale_order_report_ref
+import report_currency
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
