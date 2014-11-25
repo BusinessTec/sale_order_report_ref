@@ -1,25 +1,24 @@
-# -*- coding: utf-8 -*- 
-
+#-*- coding: utf-8 -*- 
 from openerp import models, fields, api
-import openerp.addons.
 
-class currency_reference(models.Model):
-# 
-# temp: to be moved to seperate module with dependency rework 
-#
-	_inherit = "res.company"
-	currency_ref=  fields.integer(string='Ref currency', default='3')
-	
 class sale_order_ref(models.Model):
 	
 	_inherit = "sale.order"
-#	amount_untaxed_ref = fields.Float(string='Subtotal (USD)', digits=(13,2),compute='new_untaxed',readonly=True)
-#	amount_taxed_ref = fields.Float(string='Imp. USD', digits=(13,2),readonly=True,compute='new_taxed')
-	amount_total_ref = fields.Float(string='Total (USD)', digits=(13,2),readonly=True,compute='new_total')
-
+	ref_amount_total = fields.Float(string='Total en USD', digits=(12,2),compute='new_total',store=True)
 
 	@api.one
-	@api.depends('currency_id','amount_total')
+	@api.depends('currency_id','company_id','date_order','amount_total')
 	def new_total(self):
-		self.amount_total_ref=compute(self, amount_total,3,True)
+		if self.currency_id==self.company_id.currency_ref:
+			self.ref_amount_total=self.amount_total
+
+		else:
+			context={}
+			
+			context.update({'date': self.date_confirm})
+			context={}
+			from_currency_1 = self.env['res.currency'].search([('id','=','3')])
+			from_currency = self.company_id.currency_ref
+			ll=self.env['res.currency.rate'].search([('&'),('currency_id','=',self.currency_id.id),('name','<',self.date_order)])[0].rate
+			self.ref_amount_total=self.amount_total/ll
 
