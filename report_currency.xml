@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="company_report_currency">
+      <field name="name">company.reporting.currency</field>
+      <field name="model">res.company</field>
+      <field name="inherit_id" ref="base.view_company_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='currency_id']" position="after">
+          <field name="currency_ref"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</openerp>
