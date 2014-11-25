@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="sale_order_report_currency">
+      <field name="name">sale.order.reporting.currency</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='amount_total']" position="replace">
+          <field name="amount_total"/>
+          <field name="currency_id"/>
+          <field name="ref_amount_total"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</openerp>
