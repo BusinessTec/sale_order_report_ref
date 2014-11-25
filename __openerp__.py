@@ -33,8 +33,9 @@ Calculates sales orders amount in ref currency (can be any currency or company c
     'images': [],
     'depends': ['product', 'sale'],
     'sequence': 18,
-    'data': [
-#        'cost_plus_price.xml',
+    'data': 
+    ['report_currency.xml',
+	'sale_order_report.xml',
     ],
     'installable': True,
     'auto_install': False,
